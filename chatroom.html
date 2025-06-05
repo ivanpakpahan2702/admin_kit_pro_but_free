@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="csrf-token" content="270200" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="author" content="AdminKit" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="shortcut icon" href="admin_kit/img/icons/icon-48x48.png" />
+    <link rel="canonical" href="https://demo-basic.adminkit.io/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap"
+      rel="stylesheet"
+    />
+    <title>SPD (Sistem Pemberkasan Digital)</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      class="js-stylesheet"
+      href="admin_kit/css/light.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link href="admin_kit/css/alert.css" rel="stylesheet" />
+    <script src="admin_kit/js/settings.js"></script>
+    <style>
+      html {
+        overflow: auto;
+      }
+      body {
+        opacity: 0;
+        overflow: auto;
+      }
+      /* Chrome, Safari, Edge, Opera */
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      .goog-te-gadget {
+        font-family: "Inter", sans-serif !important;
+      }
+      .VIpgJd-ZVi9od-ORHb-OEVmcd {
+        display: none !important;
+      }
+      .VIpgJd-ZVi9od-aZ2wEe-wOHMyf {
+        display: none !important;
+      }
+      body {
+        top: 0px !important;
+      }
+      div#google_translate_element div.goog-te-gadget-simple {
+        border: none;
+        border-radius: 8%;
+      }
+    </style>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-120946860-10"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-120946860-10", { anonymize_ip: true });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+
+  <body
+    data-theme="default"
+    data-layout="fluid"
+    data-sidebar-position="left"
+    data-sidebar-layout="default"
+  >
+    <div class="wrapper">
+      <nav id="sidebar" class="sidebar js-sidebar">
+        <div class="sidebar-content js-simplebar">
+          <a class="sidebar-brand" href="#">
+            <span class="sidebar-brand-text align-middle"> SPD</span>
+          </a>
+          <div class="sidebar-user">
+            <div class="d-flex justify-content-center">
+              <div class="flex-shrink-0">
+                <img
+                  class="avatar img-fluid rounded me-1"
+                  src="admin_kit\img\avatars\avatar.jpg"
+                  alt="Profile Picture"
+                />
+              </div>
+              <div class="flex-grow-1 ps-2">
+                <a
+                  class="sidebar-user-title dropdown-toggle"
+                  href="#"
+                  data-bs-toggle="dropdown"
+                >
+                  Ivan
+                </a>
+                <div class="dropdown-menu dropdown-menu-start">
+                  <a class="dropdown-item" href="/profile">
+                    <i class="align-middle me-1" data-feather="user"></i>
+                    Profile
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="/settings">
+                    <i class="align-middle me-1" data-feather="settings"></i>
+                    Settings & Privacy
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="/logout"> Log out </a>
+                </div>
+                <div class="sidebar-user-subtitle">Pegawai</div>
+              </div>
+            </div>
+          </div>
+          <ul class="sidebar-nav">
+            <li class="sidebar-header">Pages</li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/dashboard">
+                <i class="align-middle" data-feather="sliders"></i>
+                <span class="align-middle">Dashboard</span>
+              </a>
+            </li>
+            <li
+              class="sidebar-item {{ 'active' if page_title == 'Features' else '' }}"
+            >
+              <a
+                data-bs-target="#pages"
+                data-bs-toggle="collapse"
+                class="sidebar-link collapsed"
+              >
+                <i class="align-middle" data-feather="layout"></i>
+                <span class="align-middle">Features</span>
+              </a>
+              <ul
+                id="pages"
+                class="sidebar-dropdown list-unstyled collapse"
+                data-bs-parent="#sidebar"
+              >
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="/documents_admin"
+                    >Documents Admin</a
+                  >
+
+                  <a class="sidebar-link" href="/view_task_history"
+                    >Task History</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <hr />
+            <li class="sidebar-header">Admin</li>
+            <li class="sidebar-item active">
+              <a class="sidebar-link" href="/master_admin">
+                <i class="align-middle" data-feather="users"></i>
+                <span class="align-middle">Master Table</span>
+              </a>
+            </li>
+            <hr />
+            <li class="sidebar-item">
+              <div id="google_translate_element" class="sidebar-link"></div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="main">
+        <nav class="navbar navbar-expand navbar-light navbar-bg">
+          <a class="sidebar-toggle js-sidebar-toggle">
+            <i class="hamburger align-self-center"></i>
+          </a>
+          <div class="navbar-collapse collapse">
+            <ul class="navbar-nav navbar-align">
+              <li class="nav-item">
+                <a class="nav-icon js-fullscreen d-none d-lg-block" href="#">
+                  <div class="position-relative">
+                    <i class="align-middle" data-feather="maximize"></i>
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-icon dropdown-toggle d-inline-block d-sm-none"
+                  href="#"
+                  data-bs-toggle="dropdown"
+                >
+                  <i class="align-middle" data-feather="settings"></i>
+                </a>
+                <a
+                  class="nav-link dropdown-toggle d-none d-sm-inline-block"
+                  href="#"
+                  data-bs-toggle="dropdown"
+                >
+                  <img
+                    class="avatar img-fluid rounded me-1"
+                    src="admin_kit/img/avatars/avatar.jpg"
+                    alt="Profile Picture"
+                  />
+                  <span class="text-dark">Ivan</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end">
+                  <a class="dropdown-item" href="/profile">
+                    <i class="align-middle me-1" data-feather="user"></i>
+                    Profile
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="/settings">
+                    <i class="align-middle me-1" data-feather="settings"></i>
+                    Settings & Privacy
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="/logout">Log out</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <main class="content">
+          <div class="container-fluid p-0">
+            <div class="mb-3">
+              <h1 class="h3 d-inline align-middle">Messages</h1>
+            </div>
+
+            <div class="card">
+              <div class="row g-0">
+                <div class="col-12 col-lg-5 col-xl-3 border-end list-group">
+                  <div class="px-4 d-none d-md-block">
+                    <div class="d-flex align-items-center">
+                      <div class="flex-grow-1">
+                        <input
+                          type="text"
+                          class="form-control my-3"
+                          placeholder="Search..."
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <a
+                    href="#"
+                    class="list-group-item list-group-item-action border-0"
+                  >
+                    <div class="badge bg-success float-end">5</div>
+                    <div class="d-flex align-items-start">
+                      <img
+                        src="admin_kit/img/avatars/avatar-5.jpg"
+                        class="rounded-circle me-1"
+                        alt="Vanessa Tucker"
+                        width="40"
+                        height="40"
+                      />
+                      <div class="flex-grow-1 ms-3">
+                        Vanessa Tucker
+                        <div class="small">
+                          <span class="fas fa-circle chat-online"></span> Online
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <a
+                    href="#"
+                    class="list-group-item list-group-item-action border-0"
+                  >
+                    <div class="badge bg-success float-end">2</div>
+                    <div class="d-flex align-items-start">
+                      <img
+                        src="admin_kit/img/avatars/avatar-2.jpg"
+                        class="rounded-circle me-1"
+                        alt="William Harris"
+                        width="40"
+                        height="40"
+                      />
+                      <div class="flex-grow-1 ms-3">
+                        William Harris
+                        <div class="small">
+                          <span class="fas fa-circle chat-online"></span> Online
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <a
+                    href="#"
+                    class="list-group-item list-group-item-action border-0"
+                  >
+                    <div class="d-flex align-items-start">
+                      <img
+                        src="admin_kit/img/avatars/avatar-3.jpg"
+                        class="rounded-circle me-1"
+                        alt="Sharon Lessman"
+                        width="40"
+                        height="40"
+                      />
+                      <div class="flex-grow-1 ms-3">
+                        Sharon Lessman
+                        <div class="small">
+                          <span class="fas fa-circle chat-online"></span> Online
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <a
+                    href="#"
+                    class="list-group-item list-group-item-action border-0"
+                  >
+                    <div class="d-flex align-items-start">
+                      <img
+                        src="admin_kit/img/avatars/avatar-4.jpg"
+                        class="rounded-circle me-1"
+                        alt="Christina Mason"
+                        width="40"
+                        height="40"
+                      />
+                      <div class="flex-grow-1 ms-3">
+                        Christina Mason
+                        <div class="small">
+                          <span class="fas fa-circle chat-offline"></span>
+                          Offline
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <a
+                    href="#"
+                    class="list-group-item list-group-item-action border-0"
+                  >
+                    <div class="d-flex align-items-start">
+                      <img
+                        src="admin_kit/img/avatars/avatar-5.jpg"
+                        class="rounded-circle me-1"
+                        alt="Fiona Green"
+                        width="40"
+                        height="40"
+                      />
+                      <div class="flex-grow-1 ms-3">
+                        Fiona Green
+                        <div class="small">
+                          <span class="fas fa-circle chat-offline"></span>
+                          Offline
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <a
+                    href="#"
+                    class="list-group-item list-group-item-action border-0"
+                  >
+                    <div class="d-flex align-items-start">
+                      <img
+                        src="admin_kit/img/avatars/avatar-2.jpg"
+                        class="rounded-circle me-1"
+                        alt="Doris Wilder"
+                        width="40"
+                        height="40"
+                      />
+                      <div class="flex-grow-1 ms-3">
+                        Doris Wilder
+                        <div class="small">
+                          <span class="fas fa-circle chat-offline"></span>
+                          Offline
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <a
+                    href="#"
+                    class="list-group-item list-group-item-action border-0"
+                  >
+                    <div class="d-flex align-items-start">
+                      <img
+                        src="admin_kit/img/avatars/avatar-4.jpg"
+                        class="rounded-circle me-1"
+                        alt="Haley Kennedy"
+                        width="40"
+                        height="40"
+                      />
+                      <div class="flex-grow-1 ms-3">
+                        Haley Kennedy
+                        <div class="small">
+                          <span class="fas fa-circle chat-offline"></span>
+                          Offline
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <a
+                    href="#"
+                    class="list-group-item list-group-item-action border-0"
+                  >
+                    <div class="d-flex align-items-start">
+                      <img
+                        src="admin_kit/img/avatars/avatar-3.jpg"
+                        class="rounded-circle me-1"
+                        alt="Jennifer Chang"
+                        width="40"
+                        height="40"
+                      />
+                      <div class="flex-grow-1 ms-3">
+                        Jennifer Chang
+                        <div class="small">
+                          <span class="fas fa-circle chat-offline"></span>
+                          Offline
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+
+                  <hr class="d-block d-lg-none mt-1 mb-0" />
+                </div>
+                <div class="col-12 col-lg-7 col-xl-9">
+                  <div class="py-2 px-4 border-bottom d-none d-lg-block">
+                    <div class="d-flex align-items-center py-1">
+                      <div class="position-relative">
+                        <img
+                          src="admin_kit/img/avatars/avatar-3.jpg"
+                          class="rounded-circle me-1"
+                          alt="Sharon Lessman"
+                          width="40"
+                          height="40"
+                        />
+                      </div>
+                      <div class="flex-grow-1 ps-3">
+                        <strong>Sharon Lessman</strong>
+                        <div class="text-muted small"><em>Typing...</em></div>
+                      </div>
+                      <div>
+                        <button class="btn btn-primary btn-lg me-1 px-3">
+                          <i class="feather-lg" data-feather="phone"></i>
+                        </button>
+                        <button
+                          class="btn btn-info btn-lg me-1 px-3 d-none d-md-inline-block"
+                        >
+                          <i class="feather-lg" data-feather="video"></i>
+                        </button>
+                        <button class="btn btn-light border btn-lg px-3">
+                          <i
+                            class="feather-lg"
+                            data-feather="more-horizontal"
+                          ></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="position-relative">
+                    <div class="chat-messages p-4">
+                      <div class="chat-message-right pb-4">
+                        <div>
+                          <img
+                            src="admin_kit/img/avatars/avatar.jpg"
+                            class="rounded-circle me-1"
+                            alt="Chris Wood"
+                            width="40"
+                            height="40"
+                          />
+                          <div class="text-muted small text-nowrap mt-2">
+                            2:33 am
+                          </div>
+                        </div>
+                        <div
+                          class="flex-shrink-1 bg-light rounded py-2 px-3 me-3"
+                        >
+                          <div class="font-weight-bold mb-1">You</div>
+                          Lorem ipsum dolor sit amet, vis erat denique in,
+                          dicunt prodesset te vix.
+                        </div>
+                      </div>
+
+                      <div class="chat-message-left pb-4">
+                        <div>
+                          <img
+                            src="admin_kit/img/avatars/avatar-3.jpg"
+                            class="rounded-circle me-1"
+                            alt="Sharon Lessman"
+                            width="40"
+                            height="40"
+                          />
+                          <div class="text-muted small text-nowrap mt-2">
+                            2:34 am
+                          </div>
+                        </div>
+                        <div
+                          class="flex-shrink-1 bg-light rounded py-2 px-3 ms-3"
+                        >
+                          <div class="font-weight-bold mb-1">
+                            Sharon Lessman
+                          </div>
+                          Sit meis deleniti eu, pri vidit meliore docendi ut, an
+                          eum erat animal commodo.
+                        </div>
+                      </div>
+
+                      <div class="chat-message-right mb-4">
+                        <div>
+                          <img
+                            src="admin_kit/img/avatars/avatar.jpg"
+                            class="rounded-circle me-1"
+                            alt="Chris Wood"
+                            width="40"
+                            height="40"
+                          />
+                          <div class="text-muted small text-nowrap mt-2">
+                            2:35 am
+                          </div>
+                        </div>
+                        <div
+                          class="flex-shrink-1 bg-light rounded py-2 px-3 me-3"
+                        >
+                          <div class="font-weight-bold mb-1">You</div>
+                          Cum ea graeci tractatos.
+                        </div>
+                      </div>
+
+                      <div class="chat-message-left pb-4">
+                        <div>
+                          <img
+                            src="admin_kit/img/avatars/avatar-3.jpg"
+                            class="rounded-circle me-1"
+                            alt="Sharon Lessman"
+                            width="40"
+                            height="40"
+                          />
+                          <div class="text-muted small text-nowrap mt-2">
+                            2:36 am
+                          </div>
+                        </div>
+                        <div
+                          class="flex-shrink-1 bg-light rounded py-2 px-3 ms-3"
+                        >
+                          <div class="font-weight-bold mb-1">
+                            Sharon Lessman
+                          </div>
+                          Sed pulvinar, massa vitae interdum pulvinar, risus
+                          lectus porttitor magna, vitae commodo lectus mauris et
+                          velit. Proin ultricies placerat imperdiet. Morbi
+                          varius quam ac venenatis tempus.
+                        </div>
+                      </div>
+
+                      <div class="chat-message-left pb-4">
+                        <div>
+                          <img
+                            src="admin_kit/img/avatars/avatar-3.jpg"
+                            class="rounded-circle me-1"
+                            alt="Sharon Lessman"
+                            width="40"
+                            height="40"
+                          />
+                          <div class="text-muted small text-nowrap mt-2">
+                            2:37 am
+                          </div>
+                        </div>
+                        <div
+                          class="flex-shrink-1 bg-light rounded py-2 px-3 ms-3"
+                        >
+                          <div class="font-weight-bold mb-1">
+                            Sharon Lessman
+                          </div>
+                          Cras pulvinar, sapien id vehicula aliquet, diam velit
+                          elementum orci.
+                        </div>
+                      </div>
+
+                      <div class="chat-message-right mb-4">
+                        <div>
+                          <img
+                            src="admin_kit/img/avatars/avatar.jpg"
+                            class="rounded-circle me-1"
+                            alt="Chris Wood"
+                            width="40"
+                            height="40"
+                          />
+                          <div class="text-muted small text-nowrap mt-2">
+                            2:38 am
+                          </div>
+                        </div>
+                        <div
+                          class="flex-shrink-1 bg-light rounded py-2 px-3 me-3"
+                        >
+                          <div class="font-weight-bold mb-1">You</div>
+                          Lorem ipsum dolor sit amet, vis erat denique in,
+                          dicunt prodesset te vix.
+                        </div>
+                      </div>
+
+                      <div class="chat-message-left pb-4">
+                        <div>
+                          <img
+                            src="admin_kit/img/avatars/avatar-3.jpg"
+                            class="rounded-circle me-1"
+                            alt="Sharon Lessman"
+                            width="40"
+                            height="40"
+                          />
+                          <div class="text-muted small text-nowrap mt-2">
+                            2:39 am
+                          </div>
+                        </div>
+                        <div
+                          class="flex-shrink-1 bg-light rounded py-2 px-3 ms-3"
+                        >
+                          <div class="font-weight-bold mb-1">
+                            Sharon Lessman
+                          </div>
+                          Sit meis deleniti eu, pri vidit meliore docendi ut, an
+                          eum erat animal commodo.
+                        </div>
+                      </div>
+
+                      <div class="chat-message-right mb-4">
+                        <div>
+                          <img
+                            src="admin_kit/img/avatars/avatar.jpg"
+                            class="rounded-circle me-1"
+                            alt="Chris Wood"
+                            width="40"
+                            height="40"
+                          />
+                          <div class="text-muted small text-nowrap mt-2">
+                            2:40 am
+                          </div>
+                        </div>
+                        <div
+                          class="flex-shrink-1 bg-light rounded py-2 px-3 me-3"
+                        >
+                          <div class="font-weight-bold mb-1">You</div>
+                          Cum ea graeci tractatos.
+                        </div>
+                      </div>
+
+                      <div class="chat-message-right mb-4">
+                        <div>
+                          <img
+                            src="admin_kit/img/avatars/avatar.jpg"
+                            class="rounded-circle me-1"
+                            alt="Chris Wood"
+                            width="40"
+                            height="40"
+                          />
+                          <div class="text-muted small text-nowrap mt-2">
+                            2:41 am
+                          </div>
+                        </div>
+                        <div
+                          class="flex-shrink-1 bg-light rounded py-2 px-3 me-3"
+                        >
+                          <div class="font-weight-bold mb-1">You</div>
+                          Morbi finibus, lorem id placerat ullamcorper, nunc
+                          enim ultrices massa, id dignissim metus urna eget
+                          purus.
+                        </div>
+                      </div>
+
+                      <div class="chat-message-left pb-4">
+                        <div>
+                          <img
+                            src="admin_kit/img/avatars/avatar-3.jpg"
+                            class="rounded-circle me-1"
+                            alt="Sharon Lessman"
+                            width="40"
+                            height="40"
+                          />
+                          <div class="text-muted small text-nowrap mt-2">
+                            2:42 am
+                          </div>
+                        </div>
+                        <div
+                          class="flex-shrink-1 bg-light rounded py-2 px-3 ms-3"
+                        >
+                          <div class="font-weight-bold mb-1">
+                            Sharon Lessman
+                          </div>
+                          Sed pulvinar, massa vitae interdum pulvinar, risus
+                          lectus porttitor magna, vitae commodo lectus mauris et
+                          velit. Proin ultricies placerat imperdiet. Morbi
+                          varius quam ac venenatis tempus.
+                        </div>
+                      </div>
+
+                      <div class="chat-message-right mb-4">
+                        <div>
+                          <img
+                            src="admin_kit/img/avatars/avatar.jpg"
+                            class="rounded-circle me-1"
+                            alt="Chris Wood"
+                            width="40"
+                            height="40"
+                          />
+                          <div class="text-muted small text-nowrap mt-2">
+                            2:43 am
+                          </div>
+                        </div>
+                        <div
+                          class="flex-shrink-1 bg-light rounded py-2 px-3 me-3"
+                        >
+                          <div class="font-weight-bold mb-1">You</div>
+                          Lorem ipsum dolor sit amet, vis erat denique in,
+                          dicunt prodesset te vix.
+                        </div>
+                      </div>
+
+                      <div class="chat-message-left pb-4">
+                        <div>
+                          <img
+                            src="admin_kit/img/avatars/avatar-3.jpg"
+                            class="rounded-circle me-1"
+                            alt="Sharon Lessman"
+                            width="40"
+                            height="40"
+                          />
+                          <div class="text-muted small text-nowrap mt-2">
+                            2:44 am
+                          </div>
+                        </div>
+                        <div
+                          class="flex-shrink-1 bg-light rounded py-2 px-3 ms-3"
+                        >
+                          <div class="font-weight-bold mb-1">
+                            Sharon Lessman
+                          </div>
+                          Sit meis deleniti eu, pri vidit meliore docendi ut, an
+                          eum erat animal commodo.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="flex-grow-0 py-3 px-4 border-top">
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Type your message"
+                      />
+                      <button class="btn btn-primary">Send</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        <footer class="footer">
+          <div class="container-fluid">
+            <div class="text-muted">
+              <div class="text-center">
+                <a class="text-muted" href="#" target="_blank">
+                  © 2025, All Rights Reserved
+                  <br />
+                  (Sistem Pemberkasan Digital)
+                </a>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script src="admin_kit/js/app.js"></script>
+    <script src="admin_kit/js/datatables.js"></script>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "en,id",
+            includedLanguages: "en,id",
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false,
+          },
+          "google_translate_element"
+        );
+      }
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const passwordInputs = document.querySelectorAll(
+          'input[type="password"]'
+        );
+
+        passwordInputs.forEach((input) => {
+          const wrapper = document.createElement("div");
+          wrapper.style.position = "relative";
+          input.parentNode.insertBefore(wrapper, input);
+          wrapper.appendChild(input);
+          input.style.paddingRight = "30px";
+
+          const toggleIcon = document.createElement("i");
+          toggleIcon.className = "fa fa-eye toggle-password";
+          toggleIcon.style.position = "absolute";
+          toggleIcon.style.right = "10px";
+          toggleIcon.style.top = "50%";
+          toggleIcon.style.transform = "translateY(-50%)";
+          toggleIcon.style.cursor = "pointer";
+
+          wrapper.appendChild(toggleIcon);
+
+          toggleIcon.addEventListener("click", () => {
+            if (input.type === "password") {
+              input.type = "text";
+              toggleIcon.classList.remove("fa-eye");
+              toggleIcon.classList.add("fa-eye-slash");
+            } else {
+              input.type = "password";
+              toggleIcon.classList.remove("fa-eye-slash");
+              toggleIcon.classList.add("fa-eye");
+            }
+          });
+        });
+      });
+    </script>
+    <script
+      type="text/javascript"
+      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Select all forms on the page
+        var forms = document.querySelectorAll("form");
+
+        forms.forEach(function (form) {
+          form.addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default submission
+
+            // Show SweetAlert confirmation dialog
+            Swal.fire({
+              title: "Are you sure?",
+              text: "Do you want to submit this form?",
+              icon: "warning",
+              showCancelButton: true,
+              confirmButtonText: "Yes, submit it!",
+              cancelButtonText: "No, cancel",
+            }).then((result) => {
+              if (result.isConfirmed) {
+                // If confirmed, submit the form programmatically
+                form.submit();
+              }
+              // Else, do nothing, form stays unsubmitted
+            });
+          });
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        flatpickr(".flatpickr-datetime", {
+          enableTime: true,
+          dateFormat: "Y-m-d H:i",
+        });
+      });
+    </script>
+  </body>
+</html>
